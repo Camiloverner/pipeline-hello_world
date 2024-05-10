@@ -1,13 +1,10 @@
-from flask import Flask
+import http.server
+import socketserver
 
-# Cria uma instância do Flask
-app = Flask(__name__)
+PORT = 8000
 
-# Define uma rota para a página inicial
-@app.route('/')
-def hello_world():
-    return 'Hello, World!'
+Handler = http.server.SimpleHTTPRequestHandler
 
-# Executa o aplicativo
-if __name__ == '__main__':
-    app.run(debug=True)
+with socketserver.TCPServer(("", PORT), Handler) as httpd:
+    print("Servidor HTTP rodando na porta:", PORT)
+    httpd.serve_forever()
