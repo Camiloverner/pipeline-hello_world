@@ -1,6 +1,7 @@
 pipeline {
     agent any
-
+    
+    stages {
         stage('Pegar o código no repositório') {
             steps {
                 dir('/home/meu-usuario/repositorio') {
@@ -8,10 +9,10 @@ pipeline {
                 }
             }
         }
+        
         stage('fazer o deploy na web') {
             steps {
                 sh 'python hello_world.py'
-
             }
         }
     }
