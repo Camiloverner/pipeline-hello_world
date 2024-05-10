@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Pegar o código no repositório') {
             steps {
-                dir('/home/meu-usuario/repositorio') {
+                dir('/home/teste') {
                     git 'https://github.com/Camiloverner/pipeline-hello_world-flask.git'
                 }
             }
